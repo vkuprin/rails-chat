@@ -10,11 +10,23 @@ if ENV["RAILS_ENV"] != "production"
     def pattern
       extras = []
 
-      extras << File.join(Api::Engine.root, "spec", "**", "*_spec.rb").to_s
-      extras << File.join(Authentication::Engine.root, "spec", "**", "*_spec.rb").to_s
-      extras << File.join(Chat::Engine.root, "spec", "**", "*_spec.rb").to_s
+      extras << api_dir
+      extras << authentication_dir
+      extras << chat_dir
 
       [@pattern] | extras
+    end
+
+    def api_dir
+      File.join(Api::Engine.root, "spec", "**", "*_spec.rb").to_s
+    end
+
+    def authentication_dir
+      File.join(Authentication::Engine.root, "spec", "**", "*_spec.rb").to_s
+    end
+
+    def chat_dir
+      File.join(Chat::Engine.root, "spec", "**", "*_spec.rb").to_s
     end
   end
 end
