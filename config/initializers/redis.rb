@@ -12,14 +12,5 @@ else
   cnfg = dflt
 end
 
-#$redis_ns = Redis::Namespace.new(cnfg[:namespace], :redis => $redis) if cnfg[:namespace]
-
-require "mock_redis"
-
-# if Rails.env == "test"
-#   $redis = MockRedis.new
-# else
-  $redis = Redis.new(cnfg)
-# end
-
+$redis = Redis.new(cnfg)
 $redis.flushdb
