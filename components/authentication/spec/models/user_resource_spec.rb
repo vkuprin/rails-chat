@@ -9,7 +9,11 @@ RSpec.describe Authentication::UserResource, type: :model do
     it { should validate_presence_of(:resource_type) }
   end
 
-  describe "scopes", :aggregate_failures do
+  context "Associations tests" do
+    it { should belong_to(:user) }
+  end
+
+  describe "Scopes", :aggregate_failures do
     context "type" do
       it "returns group messages" do
         group_message = create(:group_message)
