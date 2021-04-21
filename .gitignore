@@ -9,8 +9,6 @@
 
 coverage/*
 
-.env
-
 .rspec_status
 
 # Ignore all logfiles and tempfiles.
