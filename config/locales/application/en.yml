@@ -1,0 +1,34 @@
+# This lexicon (including subdirectories of `/config/locales/`)
+# contains entries for messaging across all Components and
+# Engines used in the host application. This requires that when
+# Engines are used in other host applications, lexicon entries must
+# be defined there, for the Engines to work. The benefits are that
+# text content can be managed in one place for the entire host
+# application, and implementation is simpler.
+#
+# Adhering to a defined schema for key nesting allows us to easily
+# locate an entry, and maintain encapsulation of components. Examples:
+#
+# Rails namespaces
+# {locale}.{namespace}.path.to.key
+# 'errors.messages.generic.422'
+#
+# Engine-based
+# {locale}.{Engine}.{filename}.{method}
+# 'en.api.offers.offer_restriction_error'
+#
+# Method with multiple responses
+# {locale}.{Engine}.{filename}.{method}.{response_code}
+# 'en.api.terms_and_conditions.accept.422'
+#
+# See `/README.md` for more information.
+
+en:
+  errors:
+    messages:
+      generic:
+        "400": "Bad request"
+        "401": "Unauthorized access"
+        "404": "Not Found"
+        "422": "Invalid parameters"
+        "424": "Could Not Connect To Paywith Platform"

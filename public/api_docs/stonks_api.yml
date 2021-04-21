@@ -1,0 +1,446 @@
+openapi: 3.0.0
+info:
+  version: 1.0-alpha
+  title: Stonks Chat API
+  description: The API docs for Stonks Chat API
+paths:
+  '/groups':
+    post:
+      summary: Creates a Group
+      operationId: createGroup
+      description: Creates a Group
+      tags:
+        - Groups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGroup'
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Group"
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized (bearer token is invalid for some reason, see message
+            for details)
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+        "422":
+          description: Unprocessable Entity
+        "426":
+          description: >
+            This endpoint is now deprecated. The customer must upgrade their
+            application, pointed to a newer version of the API.
+        "451":
+          description: >
+            Customer must agree to the terms of service before this request can be
+            processed.
+
+            Please refer to the documentation section for `/terms_and_conditions`
+        "477":
+          description: API Token Expired - Request a New Token
+        "500":
+          description: Internal Server Error
+      security:
+        - genUAuthToken: []
+    get:
+      summary: List Groups
+      description: Retrieves a list of groups
+      operationId: getListGroup
+      tags:
+        - Groups
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Group"
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized (bearer token is invalid for some reason, see message
+            for details)
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+        "422":
+          description: Unprocessable Entity
+        "426":
+          description: >
+            This endpoint is now deprecated. The customer must upgrade their
+            application, pointed to a newer version of the API.
+        "451":
+          description: >
+            Customer must agree to the terms of service before this request can be
+            processed.
+            Please refer to the documentation section for `/terms_and_conditions`
+        "477":
+          description: API Token Expired - Request a New Token
+        "500":
+          description: Internal Server Error
+      security:
+        - genUAuthToken: []
+
+  '/groups/{id}':
+    get:
+      summary: Retrieve a Group and its recent messages
+      description: Retrieves the group details for a specific group and its recent messages
+      operationId: getGroupDetails
+      tags:
+        - Groups
+      parameters:
+        - name: id
+          in: path
+          description: Pass the group's id in path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Group"
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized (bearer token is invalid for some reason, see message
+            for details)
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+        "422":
+          description: Unprocessable Entity
+        "426":
+          description: >
+            This endpoint is now deprecated. The customer must upgrade their
+            application, pointed to a newer version of the API.
+        "451":
+          description: >
+            Customer must agree to the terms of service before this request can be
+            processed.
+            Please refer to the documentation section for `/terms_and_conditions`
+        "477":
+          description: API Token Expired - Request a New Token
+        "500":
+          description: Internal Server Error
+      security:
+        - genUAuthToken: []
+
+  '/group_messages':
+    post:
+      summary: Creates a Group message
+      operationId: createGroupMessages
+      description: Creates a Group message
+      tags:
+        - GroupMessages
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGroupMessages'
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GroupMessages"
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized (bearer token is invalid for some reason, see message
+            for details)
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+        "422":
+          description: Unprocessable Entity
+        "426":
+          description: >
+            This endpoint is now deprecated. The customer must upgrade their
+            application, pointed to a newer version of the API.
+        "451":
+          description: >
+            Customer must agree to the terms of service before this request can be
+            processed.
+
+            Please refer to the documentation section for `/terms_and_conditions`
+        "477":
+          description: API Token Expired - Request a New Token
+        "500":
+          description: Internal Server Error
+      security:
+        - genUAuthToken: []
+
+  '/users':
+    post:
+      summary: Creates a User
+      operationId: createUser
+      description: Creates a User
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized (bearer token is invalid for some reason, see message
+            for details)
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+        "422":
+          description: Unprocessable Entity
+        "426":
+          description: >
+            This endpoint is now deprecated. The customer must upgrade their
+            application, pointed to a newer version of the API.
+        "451":
+          description: >
+            Customer must agree to the terms of service before this request can be
+            processed.
+
+            Please refer to the documentation section for `/terms_and_conditions`
+        "477":
+          description: API Token Expired - Request a New Token
+        "500":
+          description: Internal Server Error
+      security:
+        - genUAuthToken: []
+  '/users/sign_in':
+    post:
+      summary: Sign in a User
+      description: Sign in a User
+      operationId: signIn
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        "200":
+          description: ""
+          headers:
+            Authorization:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized (bearer token is invalid for some reason, see message
+            for details)
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+        "422":
+          description: Unprocessable Entity
+        "426":
+          description: >
+            This endpoint is now deprecated. The customer must upgrade their
+            application, pointed to a newer version of the API.
+        "451":
+          description: >
+            Customer must agree to the terms of service before this request can be
+            processed.
+
+            Please refer to the documentation section for `/terms_and_conditions`
+        "477":
+          description: API Token Expired - Request a New Token
+        "500":
+          description: Internal Server Error
+  '/users/sign_out':
+    delete:
+      summary: Sign out a User
+      description: Sign out a User
+      operationId: signOut
+      tags:
+        - Users
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized (bearer token is invalid for some reason, see message
+            for details)
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+        "422":
+          description: Unprocessable Entity
+        "426":
+          description: >
+            This endpoint is now deprecated. The customer must upgrade their
+            application, pointed to a newer version of the API.
+        "451":
+          description: >
+            Customer must agree to the terms of service before this request can be
+            processed.
+
+            Please refer to the documentation section for `/terms_and_conditions`
+        "477":
+          description: API Token Expired - Request a New Token
+        "500":
+          description: Internal Server Error
+      security:
+        - genUAuthToken: []
+
+components:
+  securitySchemes:
+    genUAuthToken:
+      description: JWT provided by the `Authentication` API endpoint
+      type: http
+      scheme: bearer
+
+  schemas:
+    User:
+      type: object
+      description: "The user"
+      properties:
+        id:
+          type: string
+          description: the id (uuid) of a User
+          format: uuid
+          example: "0c07eb94-e604-11e9-81b4-2a2ae2dbcce4"
+        email:
+          type: string
+          nullable: true
+          example: Hamuel
+          description: User's email
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-10-31T17:26:21.049Z"
+          description: A datetime for creation of the User
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-10-31T17:26:21.049Z"
+          description: A datetime for update of the User
+
+    CreateGroup:
+      type: object
+      description: "Create a group"
+      properties:
+        name:
+          type: string
+          nullable: true
+          example: "Vancouver chat room"
+          description: Group's name
+        description:
+          type: string
+          example: "Vancouver chat room to discuss Classic Rock"
+          description: Group's description
+
+    Group:
+      type: object
+      description: "The group"
+      properties:
+        id:
+          type: string
+          description: the id (uuid) of a User
+          format: uuid
+          example: "0c07eb94-e604-11e9-81b4-2a2ae2dbcce4"
+        name:
+          type: string
+          nullable: true
+          example: "Vancouver chat room"
+          description: Group's name
+        description:
+          type: string
+          example: "Vancouver chat room to discuss Classic Rock"
+          description: Group's description
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-10-31T17:26:21.049Z"
+          description: A datetime for creation of the Group
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-10-31T17:26:21.049Z"
+          description: A datetime for update of the Group
+
+    GroupMessages:
+      type: object
+      description: "A message"
+      properties:
+        id:
+          type: string
+          description: the id (uuid) of a User
+          format: uuid
+          example: "0c07eb94-e604-11e9-81b4-2a2ae2dbcce4"
+        group_id:
+          type: string
+          nullable: true
+          example: "Vancouver chat room"
+          description: Group id
+        user_id:
+          type: string
+          example: "0c07eb94-e604-11e9-81b4-2a2ae2dbcce4"
+          description: User id
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-10-31T17:26:21.049Z"
+          description: A datetime for creation of the Historical message
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-10-31T17:26:21.049Z"
+          description: A datetime for update of the Historical message
+
+    CreateGroupMessages:
+      type: object
+      description: "Create a message"
+      properties:
+        group_id:
+          type: string
+          nullable: true
+          example: "0c07eb94-e604-11e9-81b4-2a2ae2dbcce4"
+          description: Group id
+        user_id:
+          type: string
+          example: "0c07eb94-e604-11e9-81b4-2a2ae2dbcce4"
+          description: User id
+        message:
+          type: string
+          example: "Do you want to buy the t-shirt or the hat?"
+          description: the body of the message
