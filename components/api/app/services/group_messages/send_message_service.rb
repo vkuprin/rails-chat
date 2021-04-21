@@ -18,6 +18,7 @@ module GroupMessages
 
     def call
       message = historical_message
+      create_message_resource(message.id)
       broadcast_message(message)
       message
     end
@@ -26,6 +27,13 @@ module GroupMessages
 
     def broadcast_message(message)
       Redis.publish("messages#{group.id}", message[:message].to_json)
+    end
+
+    def create_message_resource(message_id)
+      current_user.user_resources.create!(
+        resource_id:   message_id,
+        resource_type: Authentication::RESOURCE_TYPES[:group_message]
+      )
     end
 
     def group

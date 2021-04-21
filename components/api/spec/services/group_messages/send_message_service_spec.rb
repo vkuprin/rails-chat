@@ -17,6 +17,7 @@ RSpec.describe GroupMessages::SendMessageService, type: :service do
       expect do
         described_class.new(user, params).call
       end.to change(Chat::GroupMessage, :count).by(1)
+                                               .and change(Authentication::UserResource, :count).by(1)
     end
   end
 

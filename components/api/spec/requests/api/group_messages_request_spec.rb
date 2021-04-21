@@ -30,6 +30,7 @@ RSpec.describe "Groups Messages", type: :request do
         expect do
           post "/api/chat/group_messages", params: params, headers: headers(response)
         end.to change(Chat::GroupMessage, :count).by(1)
+                                                 .and change(Authentication::UserResource, :count).by(1)
       end
     end
   end
