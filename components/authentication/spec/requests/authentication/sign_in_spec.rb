@@ -21,7 +21,7 @@ RSpec.describe "POST /api/users/sign_in", type: :request do
     end
   end
 
-  context "when login params are incorrect" do
+  context "when params are incorrect" do
     let(:params) do
       {
         mobile_number: "+12347890",

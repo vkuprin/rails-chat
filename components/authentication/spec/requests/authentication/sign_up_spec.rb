@@ -13,7 +13,7 @@ RSpec.describe "POST /api/users", type: :request do
   end
   let(:request) { post url, params: params }
 
-  context "when user is unauthenticated" do
+  context "when parameters are valid" do
     it "returns successful response", :aggregate_failures do
       expect do
         request
@@ -37,7 +37,7 @@ RSpec.describe "POST /api/users", type: :request do
     end
   end
 
-  context "with empty email" do
+  context "when parameters are empty" do
     let(:params) do
       {}
     end

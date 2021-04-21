@@ -64,25 +64,28 @@ RSpec.describe "Groups", type: :request do
         end.to change(Chat::Group, :count).by(1)
       end
     end
+
+
+    context "when parameters are invalid" do
+      let(:params) do
+        {}
+      end
+
+      it "returns 422" do
+        post "/api/chat/groups", params: params, headers: headers(response)
+
+        expect(response.status).to eq(422)
+      end
+    end
   end
 
-  context "when parameters are invalid" do
-    let(:params) do
-      {}
-    end
+  describe "when user is authenticated" do
+    context "when parameters are empty" do
+      it "returns 401" do
+        get "/api/chat/groups", params: {}
 
-    it "returns 422" do
-      post "/api/chat/groups", params: params, headers: headers(response)
-
-      expect(response.status).to eq(422)
-    end
-  end
-
-  context "when user is not authenticated" do
-    it "returns 401" do
-      get "/api/chat/groups", params: {}
-
-      expect(response.status).to eq(401)
+        expect(response.status).to eq(401)
+      end
     end
   end
 end
