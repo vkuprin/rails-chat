@@ -9,7 +9,6 @@ gem "bootsnap", "1.5.1"
 gem "faker", "~> 2.14.0"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 5.0"
-gem "rack-cors", "~> 1.1.1"
 gem "rails", "~> 6.0.3"
 gem "redis", "~> 4.2.5"
 
