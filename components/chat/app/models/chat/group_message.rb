@@ -6,6 +6,6 @@ module Chat
 
     belongs_to :group, inverse_of: :group_messages
 
-    validates_presence_of :user_id, :message
+    validates :group, :user_id, :message, presence: true
   end
 end
