@@ -18,8 +18,10 @@ module GroupMessages
 
     def call
       message = historical_message
+
       create_message_resource(message.id)
       broadcast_message(message)
+
       message
     end
 
