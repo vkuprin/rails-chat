@@ -17,18 +17,21 @@ RSpec.describe "POST /api/users", type: :request do
     it "returns successful response", :aggregate_failures do
       expect do
         request
-      end.to change(Authentication::User, :count).by(1)
-                                                 .and change(Authentication::UserResource, :count).by(1)
+      end.to change(Authentication::User, :count)
+        .by(1)
+        .and change(Authentication::UserResource, :count)
+        .by(1)
     end
   end
 
   context "when email is already taken" do
     before do
       create(:user, email: params[:email])
+
       request
     end
 
-    it "returns bad request status", :aggregate_failures do
+    it "returns 422", :aggregate_failures do
       expect(response.status).to eq 422
 
       expect(json_response.first["code"]).to eq(42_201)

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_01_06_204000) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_groups_on_name", unique: true
+    t.index ["name"], name: "index_groups_on_name"
   end
 
   create_table "jwt_blacklists", id: :serial, force: :cascade do |t|

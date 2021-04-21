@@ -65,7 +65,6 @@ RSpec.describe "Groups", type: :request do
       end
     end
 
-
     context "when parameters are invalid" do
       let(:params) do
         {}
