@@ -28,7 +28,7 @@ module GroupMessages
     private
 
     def broadcast_message(message)
-      Redis.publish("messages#{group.id}", message[:message].to_json)
+      Redis.publish("messages_group#{group.id}", message[:message].to_json)
     end
 
     def create_group_message_resource(message_id)
