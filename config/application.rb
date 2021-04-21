@@ -13,7 +13,7 @@ Bundler.require(*Rails.groups)
 
 Dotenv::Railtie.load if ENV['RAILS_ENV'] != 'production'
 
-module DatafitApi
+module ChatApi
   class Application < Rails::Application
     config.load_defaults 5.2
 

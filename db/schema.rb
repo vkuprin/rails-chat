@@ -35,9 +35,7 @@ ActiveRecord::Schema.define(version: 2021_01_06_204000) do
   create_table "jwt_blacklists", id: :serial, force: :cascade do |t|
     t.string "jti", null: false
     t.datetime "exp", null: false
-    t.integer "user_id"
     t.index ["jti"], name: "index_jwt_blacklists_on_jti"
-    t.index ["user_id"], name: "index_jwt_blacklists_on_user_id"
   end
 
   create_table "user_resources", force: :cascade do |t|
@@ -62,5 +60,4 @@ ActiveRecord::Schema.define(version: 2021_01_06_204000) do
   end
 
   add_foreign_key "group_messages", "groups"
-  add_foreign_key "jwt_blacklists", "users", on_delete: :cascade
 end
