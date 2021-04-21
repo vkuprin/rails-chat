@@ -5,7 +5,6 @@ require "rails_helper"
 RSpec.describe Chat::GroupMessage, type: :model do
   context "Association tests" do
     it { should belong_to(:group) }
-    it { should belong_to(:user) }
   end
 
   context "Validation tests" do

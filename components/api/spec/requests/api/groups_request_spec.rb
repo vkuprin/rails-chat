@@ -22,7 +22,7 @@ RSpec.describe "Groups", type: :request do
     context "when parameters are valid", :aggregate_failures do
       it "returns 201" do
         group = create(:group)
-        create_list(:group_message, 3, group: group, user: user)
+        create_list(:group_message, 3, group: group, user_id: user.id)
 
         get "/api/chat/groups/#{group.id}", headers: headers(response)
 

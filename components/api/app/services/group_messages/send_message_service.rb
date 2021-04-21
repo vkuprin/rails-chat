@@ -34,7 +34,7 @@ module GroupMessages
 
     def historical_message
       message = ::Chat.create_message(
-        user:    current_user,
+        user_id: current_user.id,
         group:   group,
         message: params[:message]
       )

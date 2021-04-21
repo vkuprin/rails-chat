@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2021_01_06_204000) do
 
   create_table "group_messages", force: :cascade do |t|
     t.bigint "group_id", null: false
-    t.string "user_id"
+    t.string "user_id", null: false
     t.text "message", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
