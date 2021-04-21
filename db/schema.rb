@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 2021_01_06_204000) do
 
   create_table "user_resources", force: :cascade do |t|
     t.string "user_id", limit: 36, null: false
-    t.string "resource_type"
-    t.string "resource_id"
+    t.string "resource_type", null: false
+    t.string "resource_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id", "resource_type", "resource_id"], name: "unique_user_resources", unique: true

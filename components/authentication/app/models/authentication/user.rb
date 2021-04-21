@@ -12,6 +12,6 @@ module Authentication
            jwt_revocation_strategy: JWTBlacklist,
            authentication_keys:     [:email]
 
-    validates_presence_of :email
+    validates :email, presence: true
   end
 end
