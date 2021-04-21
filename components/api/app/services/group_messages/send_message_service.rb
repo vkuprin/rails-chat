@@ -17,9 +17,9 @@ module GroupMessages
     attr_reader :params, :current_user
 
     def call
-      message = historical_message
+      message = group_message
 
-      create_message_resource(message.id)
+      create_group_message_resource(message.id)
       broadcast_message(message)
 
       message
@@ -31,7 +31,7 @@ module GroupMessages
       Redis.publish("messages#{group.id}", message[:message].to_json)
     end
 
-    def create_message_resource(message_id)
+    def create_group_message_resource(message_id)
       current_user.user_resources.create!(
         resource_id:   message_id,
         resource_type: Authentication::RESOURCE_TYPES[:group_message]
@@ -42,7 +42,7 @@ module GroupMessages
       ::Chat.find_group(params[:group_id])
     end
 
-    def historical_message
+    def group_message
       message = ::Chat.create_message(
         user_id: current_user.id,
         group:   group,
