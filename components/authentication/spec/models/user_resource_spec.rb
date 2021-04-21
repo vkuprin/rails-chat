@@ -14,7 +14,7 @@ RSpec.describe Authentication::UserResource, type: :model do
   end
 
   describe "Scopes", :aggregate_failures do
-    context "type" do
+    context ".group_messages" do
       it "returns group messages" do
         group_message = create(:group_message)
         user = create(:user)

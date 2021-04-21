@@ -31,4 +31,4 @@ en:
         "401": "Unauthorized access"
         "404": "Not Found"
         "422": "Invalid parameters"
-        "424": "Could Not Connect To Paywith Platform"
+        "424": "Could Not Connect To Stonks Platform"
