@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Public: Creates a group.
+# Public: Shows a group.
 #
 # id - The group id.
 #
