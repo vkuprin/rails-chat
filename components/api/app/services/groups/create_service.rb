@@ -2,13 +2,18 @@
 
 # Public: Creates a group.
 #
-# current_user - The current user.
 # group_params - The Hash with the group parameters.
 #
 # Returns an Chat::Group instance.
 module Groups
   class CreateService
-    def call(group_params)
+    def initialize(group_params)
+      @group_params = group_params
+    end
+
+    attr_reader :group_params
+
+    def call
       group = ::Chat.create_group(group_params)
 
       raise GroupCreationError unless group

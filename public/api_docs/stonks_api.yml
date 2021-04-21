@@ -200,7 +200,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: '#/components/schemas/CreateUser'
       responses:
         "201":
           description: ""
@@ -247,7 +247,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: '#/components/schemas/LoginUser'
       responses:
         "200":
           description: ""
@@ -337,8 +337,7 @@ components:
         id:
           type: string
           description: the id (uuid) of a User
-          format: uuid
-          example: "0c07eb94-e604-11e9-81b4-2a2ae2dbcce4"
+          example: "4"
         email:
           type: string
           nullable: true
@@ -354,6 +353,39 @@ components:
           format: date-time
           example: "2019-10-31T17:26:21.049Z"
           description: A datetime for update of the User
+
+    CreateUser:
+      type: object
+      description: "Create a User"
+      properties:
+        email:
+          type: string
+          nullable: true
+          example: Hamuel
+          description: User's email
+        password:
+          type: string
+          format: date-time
+          example: "2019-10-31T17:26:21.049Z"
+          description: A password of the User
+        password_confirmation:
+          type: string
+          description: A password of the User
+
+    LoginUser:
+      type: object
+      description: "Create a User"
+      properties:
+        email:
+          type: string
+          nullable: true
+          example: Hamuel
+          description: User's email
+        password:
+          type: string
+          format: date-time
+          example: "2019-10-31T17:26:21.049Z"
+          description: A password of the User
 
     CreateGroup:
       type: object
@@ -375,9 +407,8 @@ components:
       properties:
         id:
           type: string
-          description: the id (uuid) of a User
-          format: uuid
-          example: "0c07eb94-e604-11e9-81b4-2a2ae2dbcce4"
+          description: the id of a Group
+          example: "4"
         name:
           type: string
           nullable: true
@@ -404,17 +435,16 @@ components:
       properties:
         id:
           type: string
-          description: the id (uuid) of a User
-          format: uuid
-          example: "0c07eb94-e604-11e9-81b4-2a2ae2dbcce4"
+          description: the id of a Message Group
+          example: "4"
         group_id:
           type: string
           nullable: true
-          example: "Vancouver chat room"
+          example: "4"
           description: Group id
         user_id:
           type: string
-          example: "0c07eb94-e604-11e9-81b4-2a2ae2dbcce4"
+          example: "4"
           description: User id
         created_at:
           type: string
@@ -434,11 +464,11 @@ components:
         group_id:
           type: string
           nullable: true
-          example: "0c07eb94-e604-11e9-81b4-2a2ae2dbcce4"
-          description: Group id
+          example: "4"
+          description: the id of a Group
         user_id:
           type: string
-          example: "0c07eb94-e604-11e9-81b4-2a2ae2dbcce4"
+          example: "4"
           description: User id
         message:
           type: string

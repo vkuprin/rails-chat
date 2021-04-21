@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Public: Creates a group.
+# Public: Lists groups.
 #
 # Returns Chat::Group instances.
 module Groups

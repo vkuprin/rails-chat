@@ -2,13 +2,18 @@
 
 # Public: Creates a group.
 #
-# current_user - The current user.
 # id - The group id.
 #
 # Returns an Chat::Group instance.
 module Groups
   class ShowService
-    def call(id)
+    def initialize(id)
+      @id = id
+    end
+
+    attr_reader :id
+
+    def call
       return unless id.present?
 
       group = ::Chat.find_group(id)

@@ -9,7 +9,7 @@ RSpec.describe GroupMessages::SendMessageService, type: :service do
       user = create(:user)
       params = {
         group_id: group.id,
-        message: 'message'
+        message:  Faker::Lorem.word
       }
 
       allow(Redis).to receive(:publish)

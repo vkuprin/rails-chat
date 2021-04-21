@@ -11,7 +11,6 @@
 require "chat/engine" if defined?(Rails)
 
 module Chat
-
   # Create message
   #
   # @param message_params [Hash] Message attributes

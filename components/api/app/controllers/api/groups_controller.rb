@@ -3,7 +3,7 @@
 module Api
   class GroupsController < BaseController
     def create
-      group = group_create_service.call(group_params)
+      group = group_create_service.call
       render json: Api::Serializers.group(group), status: :created
     rescue StandardError => exception
       respond(42_201, exception.message, 422)
@@ -17,7 +17,7 @@ module Api
     end
 
     def show
-      group = group_show_service.call(params[:id])
+      group = group_show_service.call
       render json: Api::Serializers.group(group), status: :ok
     rescue GroupNotFound
       respond(40_401, exception.message, 404)
@@ -28,7 +28,7 @@ module Api
     protected
 
     def group_create_service
-      Groups::CreateService.new
+      Groups::CreateService.new(group_params)
     end
 
     def group_list_service
@@ -36,7 +36,7 @@ module Api
     end
 
     def group_show_service
-      Groups::ShowService.new
+      Groups::ShowService.new(params[:id])
     end
 
     def group_params
