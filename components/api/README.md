@@ -7,7 +7,7 @@ Api Engine receives all the HTTP calls and interacts with the other components. 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'components/api'
+gem 'components/api', path: 'components/api'
 ```
 
 And then execute:

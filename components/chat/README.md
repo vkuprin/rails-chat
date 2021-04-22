@@ -3,12 +3,35 @@
 Contains Rails functionality that allows Storns to manage `Group` and `GroupMessage` models/tables.
 
 - [Chat Engine](#chat-engine)
+  - [Installation](#installation)
   - [Design and Usage](#design-and-usage)
     - [Code Examples](#code-examples)
       - [Create message](#create-message)
       - [Create group](#create-group)
       - [Find group](#find-group)
       - [Retrieve groups](#retrieve-groups)
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'components/chat', path: 'components/chat'
+```
+
+And then execute:
+```bash
+$ bundle
+```
+
+Please mount the routes inside your application:
+
+```ruby
+# config/routes.rb
+Rails.application.routes.draw do
+  mount Api::Engine => '/api'
+end
+```
 
 ## Design and Usage
 

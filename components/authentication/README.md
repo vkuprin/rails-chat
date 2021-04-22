@@ -2,7 +2,34 @@
 
 Authentication engine uses `devise` and `devise-jwt` to provide an authentication strategy for Stonks API.
 
-## Usage
+- [Authentication](#authentication)
+  - [Installation](#installation)
+  - [Design and Usage](#design-and-usage)
+  - [License](#license)
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'components/authentication', path: 'components/authentication'
+```
+
+And then execute:
+```bash
+$ bundle
+```
+
+Please mount the routes inside your application:
+
+```ruby
+# config/routes.rb
+Rails.application.routes.draw do
+  mount Authentication::Engine => '/authentication'
+end
+```
+
+## Design and Usage
 
 First you need to create a new initializer file for devise:
 ```ruby
