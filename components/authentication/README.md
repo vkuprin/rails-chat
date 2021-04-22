@@ -1,4 +1,4 @@
-# Authentication
+# Authentication Engine
 
 Authentication engine uses `devise` and `devise-jwt` to provide an authentication strategy for Stonks API.
 
@@ -27,7 +27,8 @@ Rails.application.routes.draw do
 end
 ```
 
-You need to create a new initializer file for devise:
+You need to create a new initializer file for devise in your main application:
+
 ```ruby
 # config/initializers/devise.rb
 Devise.setup do |config|
@@ -36,11 +37,12 @@ end
 ```
 
 Run the migrations:
+
 ```bash
 $ rake db:migrate
 ```
 
-Finally, in order to make devise work, you should define the following environment keys in your env file:
+Finally, in order to make devise work, you should define the following environment keys in your environment file:
 
 ```bash
 DEVISE_JWT_SECRET=

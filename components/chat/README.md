@@ -1,6 +1,6 @@
 # Chat Engine
 
-Contains Rails functionality that allows Storns to manage `Group` and `GroupMessage` models/tables.
+Chat Engine is a plugin that allows Storns to manage `Group` and `GroupMessage` models/tables.
 
 - [Chat Engine](#chat-engine)
   - [Installation](#installation)
@@ -48,9 +48,9 @@ Creates a message in a group.
 # @return [Hash]
 
 message_params = {
-  "group_id": 1,
-  "user_id": 1,
-  "message": "Where can I buy this?"
+  group_id: 1,
+  user_id: 1,
+  message: "Where can I buy this?"
 }
 
 GroupMessage.create(message_params)
@@ -75,6 +75,7 @@ group_params = {
 
 Group.create(group_params)
 => {
+   id: "1",
    name: "Stanley Park Group",
    description: "Stanley Park Chat Group"
  }
