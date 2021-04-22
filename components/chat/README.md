@@ -29,7 +29,7 @@ Please mount the routes inside your application:
 ```ruby
 # config/routes.rb
 Rails.application.routes.draw do
-  mount Api::Engine => '/api'
+  mount Chat::Engine => '/chat'
 end
 ```
 
