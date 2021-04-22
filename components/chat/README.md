@@ -21,21 +21,21 @@ This component consists of two tables: `groups` and `group_messages`.
 Creates a message in a group.
 
 ```ruby
-# Create message
-#
 # @param message_params [Hash] Message attributes
 # @return [Hash]
-#  {
-#    "group_id"=>1,
-#    "user_id"=>1,
-#    "message"=>"Where can I buy this?",
-#    "created_at"=>"2020-12-01T20:03:11.762Z",
-#    "updated_at"=>"2020-12-01T20:03:11.762Z",
-#  }
 
-def self.create_message(message_params)
-  GroupMessage.create(message_params)
-end
+message_params = {
+  "group_id": 1,
+  "user_id": 1,
+  "message": "Where can I buy this?"
+}
+
+GroupMessage.create(message_params)
+=> {
+   group_id: 1,
+   user_id: 1,
+   message: "Where can I buy this?"
+ }
 ```
 
 #### Create group
@@ -43,20 +43,18 @@ end
 Creates a new group.
 
 ```ruby
-# Create group
-#
 # @param group_params [Hash] Group attributes
 # @return [Hash]
-#  {
-#    "name"=>"Stanley Park Group",
-#    "description"=>"Stanley Park Chat Group",
-#    "created_at"=>"2020-12-01T20:03:11.762Z",
-#    "updated_at"=>"2020-12-01T20:03:11.762Z",
-#  }
 
-def self.create_group(group_params)
-  Group.create(group_params)
-end
+group_params = {
+  name: "Stanley Park Group"
+}
+
+Group.create(group_params)
+=> {
+   name: "Stanley Park Group",
+   description: "Stanley Park Chat Group"
+ }
 ```
 
 #### Find group
@@ -64,21 +62,15 @@ end
 Retrieve a specific group.
 
 ```ruby
-# Find group
-#
 # @param id [String] Group id
 # @return [Hash]
-#  {
-#    "id"=>"1",
-#    "name"=>"Stanley Park Group",
-#    "description"=>"Stanley Park Chat Group",
-#    "created_at"=>"2020-12-01T20:03:11.762Z",
-#    "updated_at"=>"2020-12-01T20:03:11.762Z",
-#  }
 
-def self.find_group(id)
-  Group.find(id)
-end
+Group.find(id)
+=> {
+   id: "1",
+   name: "Stanley Park Group",
+   description: "Stanley Park Chat Group"
+ }
 ```
 
 #### Retrieve groups
@@ -86,24 +78,17 @@ end
 Retrieves a list of groups.
 
 ```ruby
-#
 # @return [Hash]
-#  [{
-#    "id"=>"1",
-#    "name"=>"Stanley Park Group",
-#    "description"=>"Stanley Park Chat Group",
-#    "created_at"=>"2020-12-01T20:03:11.762Z",
-#    "updated_at"=>"2020-12-01T20:03:11.762Z",
-#  },
-#  {
-#    "id"=>"1",
-#    "name"=>"Stanley Park Group",
-#    "description"=>"Stanley Park Chat Group",
-#    "created_at"=>"2020-12-01T20:03:11.762Z",
-#    "updated_at"=>"2020-12-01T20:03:11.762Z",
-#  }]
 
-def self.groups
-  Group.all
-end
+Group.all
+=> [{
+   id: "1",
+   name: "Stanley Park Group",
+   description: "Stanley Park Chat Group"
+ },
+ {
+   id: "2",
+   name: "Stanley Park Beer Group",
+   description: "Stanley Park Beer Chat Group"
+ }]
 ```
