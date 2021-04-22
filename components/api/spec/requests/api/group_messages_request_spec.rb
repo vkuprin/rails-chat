@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe "Groups Messages", type: :request do
   include_context "with authenticated user"
 

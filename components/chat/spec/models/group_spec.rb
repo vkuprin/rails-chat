@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe Chat::Group, type: :model do
   context "Association tests" do
     it { should have_many(:group_messages) }

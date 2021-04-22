@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe Groups::CreateService, type: :service do
   context "when parameters are valid" do
     it "creates a new group" do

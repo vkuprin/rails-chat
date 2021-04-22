@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe Groups::ShowService, type: :service do
   context "when parameters are valid" do
     it "returns a group" do
