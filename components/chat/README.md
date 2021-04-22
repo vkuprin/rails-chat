@@ -65,6 +65,8 @@ Retrieve a specific group.
 # @param id [String] Group id
 # @return [Hash]
 
+id = 1
+
 Group.find(id)
 => {
    id: "1",
