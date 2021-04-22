@@ -5,6 +5,8 @@ git_source(:github) {|repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.2"
 
+gem "brakeman", "~> 5.0.0"
+gem "bundler-audit", "~> 0.8.0"
 gem "bootsnap", "1.5.1"
 gem "faker", "~> 2.14.0"
 gem "pg", ">= 0.18", "< 2.0"

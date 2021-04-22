@@ -84,7 +84,11 @@ GEM
     bcrypt (3.1.13)
     bootsnap (1.5.1)
       msgpack (~> 1.0)
+    brakeman (5.0.0)
     builder (3.2.4)
+    bundler-audit (0.8.0)
+      bundler (>= 1.2.0, < 3)
+      thor (~> 1.0)
     case_transform (0.2)
       activesupport
     concurrent-ruby (1.1.7)
@@ -261,6 +265,8 @@ DEPENDENCIES
   api!
   authentication!
   bootsnap (= 1.5.1)
+  brakeman (~> 5.0.0)
+  bundler-audit (~> 0.8.0)
   chat!
   database_cleaner
   dotenv-rails (~> 2.7.6)
