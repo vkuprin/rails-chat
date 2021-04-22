@@ -11,8 +11,8 @@ Gem::Specification.new do |spec|
   spec.version     = Api::VERSION
   spec.authors     = ["Developers"]
   spec.email       = ["developers@stonks.com"]
-  spec.summary     = "Api plugin"
-  spec.description = "Api plugin"
+  spec.summary     = "Api plugin for Stonks app"
+  spec.description = "Api plugin for Stonks app"
 
   spec.files = Dir["{app,config,db,spec}/**/*"]
 
