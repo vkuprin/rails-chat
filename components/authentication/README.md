@@ -35,7 +35,7 @@ Devise.setup do |config|
 end
 ```
 
-Run the migration:
+Run the migrations:
 ```bash
 $ rake db:migrate
 ```
@@ -43,6 +43,8 @@ $ rake db:migrate
 Finally, in order to make devise work, you should define the following environment keys in your env file:
 
 ```bash
+DEVISE_JWT_SECRET=
+DEVISE_JWT_EXPIRATION_TIME=
 DEVISE_SECRET_KEY=
 DEVISE_JWT_SECRET_KEY=
 ```
